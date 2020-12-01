@@ -5,23 +5,17 @@ const prepareInput = (rawInput: string) => rawInput.split("\n").map( (s:string):
 const input = prepareInput(readInput())
 
 const goA = (input) => {
-  return input
-    .map( (mass:number):number => Math.trunc(mass/3) - 2)
-    .filter( (fuel:number) => fuel > 0)
-    .reduce( (acc:number, fuel: number) => acc + fuel, 0);
-}
-
-const recFuel = (mass: number) => {
-  let fuel = Math.max(Math.trunc(mass/3) - 2);
-  if (fuel <= 0) return 0;
-  return fuel + recFuel(fuel);
+  let map = input.reduce( function (acc, elm) { acc[elm] = true; return acc; }, Array.apply( null, new Array(2021)).map(() => false) );
+  for (var i in input) if (input[i] != 1010 && map[2020 - input[i]]) return [input[i], 2020-input[i], input[i] * (2020-input[i])]; 
+  return [ 1010, 1010, 1010*1010 ];
 }
 
 const goB = (input) => {
-  return input
-    .map( recFuel )
-    .filter( (fuel:number) => fuel > 0)
-    .reduce( (acc:number, fuel: number) => acc + fuel, 0);
+  input = input.sort( (a,b) => a-b );
+  for (let i=0; i<input.length; i++) 
+    for (let j=0; j<input.length && input[i] + input[j] <= 2020; j++) 
+      for (let k=0; k<input.length && input[i] + input[j] + input[k] <= 2020; k++) 
+        if (input[i] + input[j] + input[k] == 2020) return [input[i], input[j], input[k], input[i] * input[j] * input[k]];
 }
 
 console.time("Time")
