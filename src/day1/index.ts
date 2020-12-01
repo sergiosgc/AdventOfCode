@@ -13,8 +13,8 @@ const goA = (input) => {
 const goB = (input) => {
   input = input.sort( (a,b) => a-b );
   for (let i=0; i<input.length; i++) 
-    for (let j=0; j<input.length && input[i] + input[j] <= 2020; j++) 
-      for (let k=0; k<input.length && input[i] + input[j] + input[k] <= 2020; k++) 
+    for (let j=i+1; j<input.length && input[i] + input[j] < 2020; j++) 
+      for (let k=j+1; k<input.length && input[i] + input[j] + input[k] <= 2020; k++) 
         if (input[i] + input[j] + input[k] == 2020) return [input[i], input[j], input[k], input[i] * input[j] * input[k]];
 }
 
