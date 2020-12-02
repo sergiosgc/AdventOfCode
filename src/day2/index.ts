@@ -13,5 +13,5 @@ const isPasswordValid = function(password:InputRow) {
 
 console.time("Time")
 console.log("Solution to part 1:", input.filter(isPasswordValid).length);
-console.log("Solution to part 1:", input.filter( (p) => (p.password[p.min-1] == p.letter ? 1 : 0) ^ (p.password[p.max-1] == p.letter ? 1 : 0) ).length);
+console.log("Solution to part 2:", input.filter( (p) => (p.password[p.min-1] == p.letter ? 1 : 0) ^ (p.password[p.max-1] == p.letter ? 1 : 0) ).length);
 console.timeEnd("Time")
