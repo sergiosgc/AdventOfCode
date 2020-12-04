@@ -11,8 +11,8 @@ const fieldValidationRegex = new Map([
     [ "byr", /^19[2-9]\d|200[0-2]$/ ],
     [ "hgt", /^(1[5-8]\d|19[0-3])cm|(59|6\d|7[0-6])in$/ ],
     [ "hcl", /^#(?:[0-9a-f]{6})$/ ],
-    [ "ecl", /^(?:amb|blu|brn|gry|grn|hzl|oth)$/],
-    [ "pid", /^(?:[0-9]{9})$/ ],
+    [ "ecl", /^amb|blu|brn|gry|grn|hzl|oth$/],
+    [ "pid", /^[0-9]{9}$/ ],
 ]);
 const isPassportValid = (p: Map<string, string>):boolean => Array.from(p.keys()).reduce( (acc, field) => acc && (!fieldValidationRegex.has(field) || fieldValidationRegex.get(field).test(p.get(field)) ), true );
 
