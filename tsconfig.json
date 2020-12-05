@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2019",
+    "target": "ESNext",
     "allowJs": true,
     "strict": false,
-    "lib": ["dom", "es2019"]
+    "lib": ["es2019"]
   },
-  "include": ["src", "examples/passThrough.ts"],
-  "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.temp.ts"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
