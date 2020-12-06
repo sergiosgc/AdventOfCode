@@ -1,4 +1,4 @@
-all: day5
+all: day6
 
 day1:
 	npx ts-node src/day1/index.ts
@@ -10,3 +10,5 @@ day4:
 	npx ts-node src/day4/index.ts
 day5:
 	npx ts-node src/day5/index.ts
+day6:
+	npx ts-node src/day6/index.ts
