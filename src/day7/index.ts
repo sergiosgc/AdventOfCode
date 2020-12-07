@@ -10,7 +10,7 @@ class DirectedGraph {
         return this;
     }
     neighbours = (node:string):Iterable<string> => this.directEdges.get(node)?.keys() ?? []
-    reversed = ():DirectedGraph => new DirectedGraph({ directEdges: this.reverseEdges, reverseEdges: this.reverseEdges })
+    reversed = ():DirectedGraph => new DirectedGraph({ directEdges: this.reverseEdges, reverseEdges: this.directEdges })
     floodFill(from:string) {
         let result = new Set<string>();
         let stack = [ from ];
