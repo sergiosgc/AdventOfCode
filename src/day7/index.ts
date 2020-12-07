@@ -27,7 +27,7 @@ class DirectedGraph {
 const input = readInput().trim().split("\n")
     .map( (l) => l['match'](/^(?<color>\w+ \w+) bags contain(?<contained>.*)\.$/)['groups'] )
     .map( (m) => m.contained.split(',')
-        .map( (edge) => edge.match(/^ ?(?:(?:no other)|(?:(?<count>\d+)) (?<color>\w+ \w+)) bags?/) )
+        .map( (edge) => edge.match(/^ ?(?:(?:no other)|(?:(?<count>\d+)) (?<color>\w+ \w+)) bags?\.?$/) )
         .filter( (edge) => edge['groups'].color ).map( (edge) => ({
             from: m.color,
             to: edge['groups'].color,
