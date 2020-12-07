@@ -11,7 +11,7 @@ class DirectedGraph {
         this.reverseEdges.get(to).set(from,weight);
         return this;
     }
-    neighbours = (node:string, reverse:boolean = false):Iterable<string> => (reverse ? this.reverseEdges : this.directEdges).get(node)?.keys() ?? []
+    neighbours = (node:string):Iterable<string> => this.directEdges.get(node)?.keys() ?? []
     reversed = ():DirectedGraph => new DirectedGraph({ directEdges: this.reverseEdges, reverseEdges: this.reverseEdges })
     floodFill(from:string) {
         let result = new Set<string>();
