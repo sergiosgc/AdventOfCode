@@ -34,7 +34,7 @@ const input = readInput().trim().split("\n")
             count: +edge['groups'].count
         }) )
     )
-    .reduce( (acc, arr) => acc.concat(arr))
+    .reduce( (acc, arr) => acc.concat(arr), [])
     .reduce( (graph, edge) => graph.addEdge( edge.from, edge.to, edge.count), new DirectedGraph());
 const containedBags = (graph:DirectedGraph, by:string):number => 1 + Array.from(graph.neighbours(by)).map( (bag) => input.directEdges.get(by).get(bag) * containedBags(graph, bag) ).reduce( (acc, n) => acc + n, 0 )
 console.log("Part 1:", input.reversed().floodFill("shiny gold").size);
