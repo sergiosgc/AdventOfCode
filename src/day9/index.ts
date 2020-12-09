@@ -8,7 +8,7 @@ const findXMASInvalid = function(data:Array<number>, preambleSize:number) {
 }
 const findContiguousSumming = function(data:Array<number>, targetSum:number) {
     let i=0, j=0;
-    while (targetSum != data.slice(i,j).reduce( (acc, n) => acc+n, 0 )) if (targetSum < data.slice(i,j).reduce( (acc, n) => acc+n, 0 )) { i++; j=i+1; } else j++;
+    while (targetSum != data.slice(i,j).reduce( (acc, n) => acc+n, 0 )) if (targetSum < data.slice(i,j).reduce( (acc, n) => acc+n, 0 )) i++; else j++;
     return Math.min(...data.slice(i,j)) + Math.max(...data.slice(i,j))
 }
 console.log("Solution to part 1:", findXMASInvalid(input, 25))
