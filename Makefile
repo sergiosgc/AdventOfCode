@@ -1,4 +1,4 @@
-all: day9
+all: day10
 
 day1:
 	npx ts-node src/day1/index.ts
@@ -21,3 +21,6 @@ day8:
 day9:
 	tsc --downlevelIteration src/day9/index.ts
 	node src/day9/index.js
+day10:
+	tsc --downlevelIteration src/day10/index.ts
+	node src/day10/index.js
