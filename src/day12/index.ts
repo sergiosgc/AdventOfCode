@@ -1,4 +1,3 @@
-import { X_OK } from "constants";
 import { readInput } from "../utils/index"
 class Movement { 
     action:string;
