@@ -1,4 +1,4 @@
-import { test, readInput } from "../utils/index"
+import { readInput } from "../utils/index"
 interface InputRow { min: number; max: number; password: string; letter: string }
 const input:Array<InputRow> = readInput().split("\n").filter( (s) => s.length > 0 ).map( (s:string):InputRow => {
   let parser = new RegExp('^(?<min>[0-9]+)-(?<max>[0-9]+) (?<letter>.): (?<password>.+)$');

@@ -1,4 +1,4 @@
-import { test, readInput } from "../utils/index"
+import { readInput } from "../utils/index"
 const input:Array<Map<string, string>> = readInput().trim().split("\n\n").map( (s) => s.trim().split("\n").map( (s) => s.split(" ") ).reduce( (acc, a) => acc.concat(a), [] ).reduce( function(acc,s) {
   let [k,v] = s.split(":", 2);
   acc.set(k,v);

@@ -1,4 +1,4 @@
-import { test, readInput } from "../utils/index"
+import { readInput } from "../utils/index"
 class Coord { 
   x: number;
   y: number;

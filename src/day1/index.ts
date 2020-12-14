@@ -1,4 +1,4 @@
-import { test, readInput } from "../utils/index"
+import { readInput } from "../utils/index"
 
 const prepareInput = (rawInput: string) => rawInput.split("\n").map( (s:string):number => +s).sort( (a,b) => a-b );
 
