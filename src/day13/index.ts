@@ -21,4 +21,6 @@ console.log("Part 1:", ((bus) => bus.id * (bus.departure - input.earliestDepartu
         .map ( (id) => ({ id: id, departure: id * Math.ceil( input.earliestDeparture / id ) }))
         .reduce( (min, bus) => bus.departure < min.departure ? bus : min ) 
 ) )
-console.log("Part 2:", chineseRemainderTheorem( input.busIDs.map( (bus, index) => ({ remainder: bus == null ? null : BigInt( (bus - index) % bus), modulus: bus == null ? null : BigInt(bus)}) ).filter( eq => eq.modulus != null ) ) )
+console.log("Part 2:", chineseRemainderTheorem( input.busIDs
+    .map( (bus, index) => ({ remainder: bus == null ? null : BigInt( (bus - index) % bus), modulus: bus == null ? null : BigInt(bus)}) )
+    .filter( eq => eq.modulus != null ) ) )

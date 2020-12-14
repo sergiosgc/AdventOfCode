@@ -1,4 +1,4 @@
-all: day13
+all: day14
 
 day1:
 	npx ts-node src/day1/index.ts
