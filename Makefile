@@ -1,4 +1,4 @@
-all: day14
+all: day15
 
 day1:
 	npx ts-node src/day1/index.ts
@@ -36,3 +36,6 @@ day13:
 day14:
 	tsc --project tsconfig.json
 	node src/day14/index.js
+day15:
+	tsc --project tsconfig.json
+	node src/day15/index.js
