@@ -1,5 +1,4 @@
 import { readFileSync } from "fs"
-import { resourceLimits } from "worker_threads";
 class FieldRule {
     field: string; min1: number; min2: number; max1: number; max2: number;
     public constructor(init?: Partial<FieldRule>) { 
