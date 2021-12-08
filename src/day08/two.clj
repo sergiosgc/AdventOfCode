@@ -12,11 +12,6 @@
 
 (defn count-is [c col] (= c (count col)))
 
-(defn solve-display
- [obs output]
- (pprint obs)
- (java.lang.System/exit 0))
-
 (defn on-off-blinking-segments
  [segments on off blinking]
  (let [off-segments (set/difference #{ "a", "b", "c", "d", "e", "f", "g" }, segments)]
