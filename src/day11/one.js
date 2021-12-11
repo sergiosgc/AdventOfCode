@@ -17,7 +17,10 @@ function game() {
     while(flashes.length) {
         flashCount += flashes.length;
         flashes = flashes
-            .map( c => [ [c[0]-1, c[1]-1], [c[0]-1, c[1]], [c[0]-1, c[1]+1], [c[0]+1, c[1]-1], [c[0]+1, c[1]], [c[0]+1, c[1]+1], [c[0], c[1]-1], [c[0], c[1]+1] ])
+            .map( c => [ 
+                [c[0]-1, c[1]-1], [c[0]-1, c[1]], [c[0]-1, c[1]+1], 
+                [c[0]+1, c[1]-1], [c[0]+1, c[1]], [c[0]+1, c[1]+1], 
+                [c[0], c[1]-1], [c[0], c[1]+1] ])
             .flat()
             .filter( c => c[0] >= 0 && c[0] < 10 && c[1] >= 0 && c[1] < 10)
             .filter( c => incr(c[1], c[0]) == 10 )
