@@ -2,7 +2,6 @@ import { privateEncrypt } from "crypto";
 import * as BITS from "./lib/BITS"
 
 process.stdin.setEncoding('utf-8');
-let coalesce = (v:string|null,onnull:string) => v == null ? onnull : v;
 let input = ():Promise<string> => new Promise( (resolve, reject) => 
     process.stdin.on('readable', async () => 
         resolve( (await process.stdin.read() ?? "").split("\n").filter( (s:string) => s != "" )[0] )));

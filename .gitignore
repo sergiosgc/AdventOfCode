@@ -4,3 +4,8 @@ src/day12/two/obj
 src/day12/two/bin
 src/day16/node_modules
 src/day16/package-lock.json
+src/day18/node_modules
+src/day18/package-lock.json
+src/day18/*.js
+src/day18/**/*.js
+
