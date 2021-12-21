@@ -18,7 +18,7 @@ export class LeafNode implements Node {
         if (this.parentNode == null) throw new Error('Parent is null');
         return this.parentNode.tree();
     }
-    preOrder():Node[] { return [ this ]; }
+    inOrder():Node[] { return [ this ]; }
     shouldExplode():Boolean {  return false; }
     shouldSplit():Boolean { return this.value >= 10; }
     explode():void {}

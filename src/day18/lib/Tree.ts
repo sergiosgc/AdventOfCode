@@ -15,9 +15,9 @@ export class Tree implements Node {
     tree():Node {
         return this;
     }
-    preOrder():Node[] {
+    inOrder():Node[] {
         if (this.topNode == null) return [];
-        return this.topNode.preOrder();
+        return this.topNode.inOrder();
     }
     add(to:Tree) {
         let result = new Tree(null);
@@ -35,7 +35,7 @@ export class Tree implements Node {
     }
     reduce() {
         let actionable:Node[];
-        while ( (actionable = this.preOrder().filter( (n:Node) => n.shouldExplode() || n.shouldSplit() )).length > 0 ) {
+        while ( (actionable = this.inOrder().filter( (n:Node) => n.shouldExplode() || n.shouldSplit() )).length > 0 ) {
             let toExplode = actionable.filter( (n:Node) => n.shouldExplode() );
             //console.log("R " + this.toString());
             if (toExplode.length) {

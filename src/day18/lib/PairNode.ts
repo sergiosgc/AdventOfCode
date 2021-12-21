@@ -20,7 +20,7 @@ export class PairNode implements Node {
         if (this.parentNode == null) throw new Error('Parent is null');
         return this.parentNode.tree();
     }
-    preOrder():Node[] { return this.left.preOrder().concat([ this ], this.right.preOrder()); }
+    inOrder():Node[] { return this.left.inOrder().concat([ this ], this.right.inOrder()); }
     shouldExplode():Boolean { 
         if (this.depth() > 4) throw new Error("depth for " + this.toString() + " is " + this.depth());
         return this.depth() == 4 && this.left instanceof LeafNode && this.right instanceof LeafNode;
@@ -30,7 +30,7 @@ export class PairNode implements Node {
         if (this.parentNode == null) throw new Error('Parent is null');
         if (!(this.left instanceof LeafNode)) throw new Error('Not a pair, cannot explode');
         if (!(this.right instanceof LeafNode)) throw new Error('Not a pair, cannot explode');
-        let nodes = this.tree().preOrder();
+        let nodes = this.tree().inOrder();
         let myIndex;
         for (myIndex = 0; nodes[myIndex] != this; myIndex++);
         let before:LeafNode[] = nodes.slice(0,Math.max(0, myIndex-2)).filter( n => n instanceof LeafNode ).map( (n:Node):LeafNode => {

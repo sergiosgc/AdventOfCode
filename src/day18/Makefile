@@ -1,4 +1,4 @@
-all: two.input 
+all: one.sample one.input two.sample two.input 
 
 one.sample:
 	tsc

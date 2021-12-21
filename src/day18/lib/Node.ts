@@ -3,7 +3,7 @@ export interface Node {
     depth(): number;
     toString(): string;
     tree(): Node;
-    preOrder():Node[];
+    inOrder():Node[];
     shouldExplode():Boolean;
     shouldSplit():Boolean;
     explode():void;
