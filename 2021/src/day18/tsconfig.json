@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": ["es2021"],
+    "target": "es6",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "strict": true
+  },
+  "files": [
+    "one.ts",
+    "two.ts"
+  ],
+  "include": [ "./lib/**/*" ]
+}

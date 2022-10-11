@@ -3,4 +3,13 @@
 2019/yarn.lock
 2019/report*
 2019/package-lock.json
-2020/*.js
+2021/src/day12/one/obj
+2021/src/day12/one/bin
+2021/src/day12/two/obj
+2021/src/day12/two/bin
+2021/src/day16/node_modules
+2021/src/day16/package-lock.json
+2021/src/day18/node_modules
+2021/src/day18/package-lock.json
+2021/src/day18/*.js
+2021/src/day18/**/*.js
