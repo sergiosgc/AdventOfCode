@@ -1,5 +1,6 @@
-node_modules
-.history
-yarn.lock
-report*
-package-lock.json
+2019/node_modules
+2019/.history
+2019/yarn.lock
+2019/report*
+2019/package-lock.json
+2020/*.js
