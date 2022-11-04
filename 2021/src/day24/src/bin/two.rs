@@ -38,23 +38,6 @@ impl Program {
             }
         }
         input.into_iter().reduce(|acc, v| acc * 10 + v).unwrap()
-
-        /*    stack = []
-    for i in range(14):
-        div, chk, add = map(int, [cmds[i * 18 + x][-1] for x in [4, 5, 15]])
-        if div == 1:
-            stack.append((i, add))
-        elif div == 26:
-            j, add = stack.pop()
-            inp[i] = inp[j] + add + chk
-            if inp[i] > 9:
-                inp[j] -= inp[i] - 9
-                inp[i] = 9
-            if inp[i] < 1:
-                inp[j] += 1 - inp[i]
-                inp[i] = 1
-
-    return "".join(map(str, inp)) */
     }
 }
 pub fn main() -> Result<(), Box<dyn std::error::Error>> {
