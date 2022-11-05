@@ -138,11 +138,6 @@ impl BurrowState {
 }
 pub fn main() -> Result<(), Box<dyn std::error::Error>> {
     let input: BurrowState = BurrowState::parse(std::io::BufReader::new(std::io::stdin()).lines().filter_map(std::io::Result::ok).collect());
-//    println!("{:#?}", input);
-//    println!("{:#?}", input._move_amphipod((7, 2), (4, 1)));
-    //println!("{:#?}", input.move_amphipod((7, 2), (0, -1), false)[2].1.move_amphipod((11,1), (-1,0), true));
-    //println!("{:#?}", input.solve());
-    //println!("{:#?}", input.move_amphipod((1, 1), (1, 0), false));
     println!("{:#?}", input.solve());
     Ok(())
 }
