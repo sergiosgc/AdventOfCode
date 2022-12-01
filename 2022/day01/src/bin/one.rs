@@ -5,9 +5,9 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
         .filter_map(std::io::Result::ok)
         .fold((0,0), |(max, current), line| {
             if line.len() == 0 {
-                return (max.max(current), 0);
+                (max.max(current), 0)
             } else {
-                return (max, current + line.parse::<i64>().unwrap())
+                (max, current + line.parse::<i64>().unwrap())
             }
         }).0
     );
