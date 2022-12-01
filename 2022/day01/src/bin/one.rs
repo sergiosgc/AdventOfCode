@@ -1,6 +1,15 @@
 use std::io::BufRead;
 pub fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let input: Vec<String> = std::io::BufReader::new(std::io::stdin()).lines().filter_map(std::io::Result::ok).collect();
-    println!("{:#?}", input);
+    println!("{:#?}", std::io::BufReader::new(std::io::stdin())
+        .lines()
+        .filter_map(std::io::Result::ok)
+        .fold((0,0), |(max, current), line| {
+            if line.len() == 0 {
+                return (max.max(current), 0);
+            } else {
+                return (max, current + line.parse::<i64>().unwrap())
+            }
+        }).0
+    );
     Ok(())
 }
