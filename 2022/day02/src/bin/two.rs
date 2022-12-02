@@ -17,7 +17,7 @@ impl Round {
             "A" => Move::Rock,
             "B" => Move::Paper,
             "C" => Move::Scissors,
-            _ => panic!("Unpexpected")
+            _ => panic!("Unexpected")
         };
         Round { 
             mine: match split[1] {
@@ -32,7 +32,7 @@ impl Round {
                     Move::Paper => Move::Scissors,
                     Move::Scissors => Move::Rock,
                 },
-                _ => panic!("Unpexpected")
+                _ => panic!("Unexpected")
             },
             opponent: opponent,
         }

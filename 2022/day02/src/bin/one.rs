@@ -18,13 +18,13 @@ impl Round {
                 "X" => Move::Rock,
                 "Y" => Move::Paper,
                 "Z" => Move::Scissors,
-                _ => panic!("Unpexpected")
+                _ => panic!("Unexpected")
             },
             opponent: match split[0] {
                 "A" => Move::Rock,
                 "B" => Move::Paper,
                 "C" => Move::Scissors,
-                _ => panic!("Unpexpected")
+                _ => panic!("Unexpected")
             },
         }
     }
