@@ -2,13 +2,13 @@ use std::cmp::Ordering;
 
 use regex::Regex;
 
-#[derive(Copy, Clone, PartialEq, Eq, Hash, Ord )]
+#[derive(Copy, Clone, PartialEq, Eq, Hash )]
 pub struct Coord {
     pub x: i64,
     pub y: i64,
 }
 impl Coord {
-    pub fn new(x: i64, y: i64) -> Coord { Coord{ x: x, y: y} }
+    pub fn new(x: i64, y: i64) -> Coord { Coord{ x, y } }
     pub fn from_string(s: &str) -> Coord {
         let captures = Regex::new(r#"^ *(?P<x>\d+) *, *(?P<y>\d+)"#).unwrap().captures(s).unwrap();
         match (captures.name("x"), captures.name("y")) {
@@ -31,8 +31,16 @@ impl PartialOrd for Coord {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         match self.x.cmp(&other.x) {
             Ordering::Equal => { Some(self.y.cmp(&other.y)) },
-            result @ _ => Some(result)
+            result => Some(result)
 
+        }
+    }
+}
+impl Ord for Coord {
+    fn cmp(&self, other: &Self) -> Ordering {
+        match self.x.cmp(&other.x) {
+            Ordering::Equal => { self.y.cmp(&other.y) },
+            result => result
         }
     }
 }

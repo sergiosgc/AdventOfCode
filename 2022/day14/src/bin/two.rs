@@ -6,14 +6,13 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut input = Cave{ sands: Vec::new(), segments: std::io::BufReader::new(std::io::stdin())
         .lines()
         .filter_map(std::io::Result::ok)
-        .map(|line| {
+        .flat_map(|line| {
             line.split(" -> ")
-                .map(|coord| Coord::from_string(coord))
+                .map(Coord::from_string)
                 .tuple_windows::<(Coord, Coord)>()
                 .map(|(a, b)| Segment::new(a,b) )
                 .collect::<Vec<Segment>>()
         })
-        .flatten()
         .collect::<Vec<Segment>>()};
     let void_y = input.segments.iter().map(|segment| segment.end.y).max().unwrap() + 2;
     input.segments.push( Segment::new(

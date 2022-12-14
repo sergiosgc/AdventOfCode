@@ -12,3 +12,8 @@ name = "one"
 
 [[bin]]
 name = "two"
+
+[profile.release]
+debug = false
+lto = true
+opt-level = 3
