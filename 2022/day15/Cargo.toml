@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 regex = "1.6.X"
+itertools = "0.10.X"
 
 [[bin]]
 name = "one"
