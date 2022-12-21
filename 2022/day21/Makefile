@@ -4,7 +4,7 @@ one.sample: target/debug/one
 	cargo run --bin=one < one.sample.txt
 
 one.input: target/debug/one
-	cargo run --bin=one < one.input.txt
+	cargo run --release --bin=one < one.input.txt
 
 target/debug/one: Cargo.toml src/bin/one.rs
 	cargo build
