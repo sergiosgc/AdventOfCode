@@ -1,5 +1,4 @@
 use regex::Captures;
-
 pub trait ExtractTuple4<A,B,C,D> {
     type Item;
     fn extract_tuple(self) -> Self::Item;

@@ -15,7 +15,7 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
         })
         .into_iter()
         .map(|group| HashSet::<char>::from_iter(group[0].intersection(&group[1])
-            .map(|c| (*c).clone() ))
+            .map(|c| (*c) ))
             .intersection(&group[2])
             .map(|ch| 
                 *ch as i64 

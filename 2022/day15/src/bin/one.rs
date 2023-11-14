@@ -1,12 +1,12 @@
 use std::io::BufRead;
-use aoc::{regex::ExtractTuple, sensor::Sensor, segment::{Segment, InsertNonOverlapping}};
+use aoc::{regex::ExtractTuple4, sensor::Sensor, segment::{Segment, InsertNonOverlapping}};
 use itertools::Itertools;
 
 use ::regex::Regex;
 pub fn main() -> Result<(), Box<dyn std::error::Error>> {
     let input = std::io::BufReader::new(std::io::stdin())
         .lines().filter_map(std::io::Result::ok)
-        .map( |line| Regex::new(r#"Sensor at x=([-+]?\d+), y=([-+]?\d+): closest beacon is at x=([-+]?\d+), y=([-+]?\d+)"#).unwrap().captures(&line).unwrap().extract_tuple() )
+        .map( |line| ExtractTuple4::<i64, i64, i64, i64>::extract_tuple(Regex::new(r#"Sensor at x=([-+]?\d+), y=([-+]?\d+): closest beacon is at x=([-+]?\d+), y=([-+]?\d+)"#).unwrap().captures(&line).unwrap()) )
         .map( Sensor::from_tuple )
         .collect::<Vec<Sensor>>();
     let segments = input

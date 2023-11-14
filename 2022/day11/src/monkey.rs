@@ -2,6 +2,22 @@ use regex::Regex;
 
 use crate::operation::Operation;
 
+fn extract_from_regex<T: std::str::FromStr>(regex: &str, line: &str) -> T 
+    where <T as std::str::FromStr>::Err: std::fmt::Display {
+    match Regex::new(regex)
+        .unwrap()
+        .captures(line)
+        .unwrap()
+        .get(1)
+        .unwrap()
+        .as_str()
+        .parse::<T>() {
+            Ok(v) => v,
+            Err(e) => panic!("Unable to parse: {}", e)
+        }
+}
+
+
 #[derive(Clone, Debug)]
 pub struct Monkey {
     pub items: Vec<i64>,
