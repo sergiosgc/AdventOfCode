@@ -1,9 +1,8 @@
-use std::collections::HashMap;
-
-#[derive(Clone,Debug)]
+#[derive(Clone,Debug,Default)]
 pub struct Valve {
+    pub on: bool,
     pub flow_rate: i64,
-    pub tunnels: Vec<(i64, String)>,
-    pub closed: bool,
-    pub best_visits: HashMap::<i64, i64>,
+    pub exits: Vec<String>,
+    pub best_on: Option<crate::visit::Visit>,
+    pub best_off: Option<crate::visit::Visit>
 }
