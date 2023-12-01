@@ -30,4 +30,6 @@
 2021/src/day24/Cargo.lock
 2022/**/target
 2022/**/Cargo.lock
+2023/**/target
+2023/**/Cargo.lock
 **/.vscode
