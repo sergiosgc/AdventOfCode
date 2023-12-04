@@ -27,13 +27,6 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
                 (_,_) => panic!("Impossible capture")
             }
         })
-//        .collect::<Vec<(i64, Vec<HashSet::<i64, RandomState>>)>>()
-//        .map(|(_id, numbers)| numbers[0].intersection(&numbers[1])
-//            .map(|n| n.clone())
-//            .collect::<Vec<i64>>()
-//        )
-//        .collect::<Vec<Vec<i64>>>()
-
         .map(|(_id, numbers)| numbers[0].intersection(&numbers[1]).count() as u32)
         .filter(|n| n > &0)
         .map(|n| 2_i64.pow(n-1))
