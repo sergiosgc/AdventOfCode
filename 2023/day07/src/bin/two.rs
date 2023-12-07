@@ -55,15 +55,13 @@ impl PartialOrd for Hand {
 }
 impl Hand {
     pub fn new(cards: String, bid: i64) -> Hand {
-        let joker_applied_cards = if cards == "JJJJJ" {
-            "AAAAA".to_string()
-        } else if cards.find('J').is_some() {
+        let joker_applied_cards = if cards.find('J').is_some() {
             let frequencies = histogram(&mut cards.chars().filter(|ch| *ch != 'J'));
             let best_card = *frequencies
             .iter()
             .max_by(|left, right| left.1.cmp(right.1))
             .map(|(k, _v)| k)
-            .unwrap();
+            .unwrap_or(&'A');
             cards.replace("J", &best_card.to_string())
         } else {
             cards.clone()
