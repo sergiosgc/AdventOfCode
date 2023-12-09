@@ -1,13 +1,10 @@
 use std::io::BufRead;
 pub fn derive(seq: &Vec<i64>) -> Vec<i64> {
-    let mut result: Vec<i64> = Vec::new();
-    let mut iter = seq.iter();
-    let mut last = *iter.next().unwrap();
-    for current in iter {
-        result.push(*current - last);
-        last = *current;
-    }
-    result
+    seq.windows(2).map(|window| match window {
+        &[a,b] => b-a,
+        _ => panic!("Malformed input")
+    })
+    .collect()
 }
 pub fn predict_next(seq: &Vec<i64>) -> i64 {
     if seq.iter().find(|v| **v != 0).is_some() {
