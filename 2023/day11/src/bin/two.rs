@@ -1,7 +1,7 @@
 use std::{io::BufRead, collections::HashSet};
 use itertools::Itertools;
 use aoc::coord::Coord;
-pub fn expanded_manhattan_distance(a: (Coord, (i64, i64)), b: (Coord, (i64, i64))) -> i64 {
+pub fn expanded_manhattan_distance((a, b): ((Coord, (i64, i64)),(Coord, (i64, i64)))) -> i64 {
     (a.0.x - b.0.x).abs() + (a.1.0 - b.1.0).abs() * (1000000-1) +
     (a.0.y - b.0.y).abs() + (a.1.1 - b.1.1).abs() * (1000000-1)
 }
@@ -51,6 +51,6 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
         ))
         .collect::<Vec<(Coord, (i64, i64))>>()
     };
-    println!("{:#?}", input.into_iter().combinations(2).map(|combination| expanded_manhattan_distance(combination[0], combination[1])).sum::<i64>());
+    println!("{:#?}", input.into_iter().tuple_combinations().map(expanded_manhattan_distance).sum::<i64>());
     Ok(())
 }
