@@ -54,7 +54,7 @@ pub fn permutations(record: &mut String, groups: &Vec<i64>, memoization: &mut Ha
     let (partial_fit, remaining) = partial_pattern_fits(&partial_groups, groups);
     if !partial_fit { return 0; }
     if let Some(unknown_idx) = record.find("?") {
-        if remaining > (record.len()-unknown_idx) as i64 { return 0; }
+        if remaining > (record.len()-unknown_idx - (groups.len() - partial_groups.len() - 1 ).max(0)) as i64 { return 0; }
         if let Some(result) = match unknown_idx { 0 => None, _ => memoization.get(&(partial_groups.clone(), record.clone().split_off(unknown_idx-1))) } {
             *result
         } else {
