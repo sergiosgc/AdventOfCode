@@ -1,6 +1,5 @@
 use std::{io::BufRead, collections::HashMap};
 use aoc::coord::Coord;
-use itertools::Itertools;
 
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Hash, Ord, PartialOrd)]
 enum Rock {
@@ -8,7 +7,7 @@ enum Rock {
     Square,
     Round
 }
-#[derive(Clone, Default, PartialEq, Eq)]
+#[derive(Clone, Debug, Default, PartialEq, Eq)]
 struct Platform {
     pub size: Coord,
     pub rocks: HashMap<Coord, Rock>
@@ -19,19 +18,6 @@ impl std::hash::Hash for Platform {
         let mut rocks = self.rocks.iter().collect::<Vec<(&Coord, &Rock)>>();
         rocks.sort_by(|a,b| a.0.cmp(b.0));
         rocks.hash(state);
-    }
-}
-impl std::fmt::Debug for Platform {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        (0..self.size.y+1).cartesian_product(0..self.size.x+1).for_each(|(y, x)| {
-            write!(f, "{}", match self.rocks.get(& Coord { x, y }) {
-                Some(Rock::Square) => "#",
-                Some(Rock::Round) => "O",
-                None => "."
-            }).unwrap();
-            if x == self.size.x { write!(f, "\n").unwrap(); }
-        });
-        Ok(())
     }
 }
 impl Platform {
