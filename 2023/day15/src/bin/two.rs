@@ -28,10 +28,9 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
                     }
                 }
                 Operation::Add(label, focal_length) => {
-                    if let Some(index) = boxes[hash(&label)].iter().position(|lens| lens.0 == label) {
-                        boxes[hash(&label)][index].1 = focal_length;
-                    } else {
-                        boxes[hash(&label)].push((label, focal_length));
+                    match boxes[hash(&label)].iter().position(|lens| lens.0 == label) {
+                        Some(index) => { boxes[hash(&label)][index].1 = focal_length; },
+                        None => { boxes[hash(&label)].push((label, focal_length)); }
                     }
                 }
             }
