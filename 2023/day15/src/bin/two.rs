@@ -37,8 +37,8 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
             boxes
         })
-        .iter().enumerate().map(|(r#box, lenses)|
-            lenses.iter().enumerate().map(|(slot, lens)| (1_i64+r#box as i64) * (1_i64+slot as i64) * lens.1).sum::<i64>()
+        .iter().enumerate().flat_map(|(r#box, lenses)|
+            lenses.iter().enumerate().map(move |(slot, lens)| (1_i64+r#box as i64) * (1_i64+slot as i64) * lens.1)
         )
         .sum::<i64>()
     );
