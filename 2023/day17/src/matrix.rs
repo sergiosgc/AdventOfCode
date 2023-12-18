@@ -10,7 +10,7 @@ impl<T> Matrix<T>
 where T: Clone + Default
 {
     pub fn new(dimension: (usize, usize)) -> Matrix<T> {
-        Matrix { rows: vec![vec![T::default(); dimension.1]; dimension.0] }
+        Matrix { rows: vec![vec![T::default(); dimension.0]; dimension.1] }
     }
     pub fn size(&self) -> (usize, usize) {
         ( match self.rows.get(0) { Some(row) => row.len() - 1, None => 0 }, self.rows.len() -1 )
