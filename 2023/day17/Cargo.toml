@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-regex = "1.6.X"
+pathfinding = "4.6.X"
 
 [[bin]]
 name = "one"
