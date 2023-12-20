@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 regex = "1.6.X"
+consume-iterator = "0.2.X"
 
 [[bin]]
 name = "one"
