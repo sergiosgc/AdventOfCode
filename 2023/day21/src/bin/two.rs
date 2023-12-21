@@ -35,7 +35,6 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
         (y+line.len(), format!("{}{}{}", line.replace("S", "."), line, line.replace("S", "."))),
         (y+2*line.len(), format!("{}{}{}", line.replace("S", "."), line.replace("S", "."), line.replace("S", "."))),
     ])
-    .map(|v| { println!("{:?}", v); v })
     .flat_map(|(y, line)| line.chars().enumerate()
         .map(|(x, ch)| { 
             if ch == 'S' { start_pos = Coord{ x: x.try_into().unwrap(), y: y.try_into().unwrap(), }; }
