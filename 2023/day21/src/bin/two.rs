@@ -47,9 +47,9 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
     )
     .collect::<HashSet<Coord>>();
     let samples = vec![
-        (dimension.x - 2)/6,
-        (dimension.x - 2)/6 + (dimension.x + 1)/3,
-        (dimension.x - 2)/6 + 2*(dimension.x + 1)/3,
+        (dimension.x - 3)/6 + 1,
+        (dimension.x - 3)/6 + 1 + (1+(dimension.x)/3),
+        (dimension.x - 3)/6 + 1 + 2*(1+(dimension.x)/3),
     ];
     let reachable = samples.clone().into_iter()
     .map(|iterations| reachable(&Garden { rocks: input.clone(), dimension }, &HashSet::from([start_pos]), iterations).iter().len() as i64)
