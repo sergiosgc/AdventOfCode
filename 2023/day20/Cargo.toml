@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 regex = "1.6.X"
+num = "0.4.X"
 
 [[bin]]
 name = "one"
