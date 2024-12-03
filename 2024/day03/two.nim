@@ -37,10 +37,10 @@ echo(
                     of 1: a[0] + b[0]
                     else: a[0]
             ),(
-            case b[1]:
-                of 1: 1
-                of -1: 0
-                else: a[1]
+                case b[1]:
+                    of 1: 1
+                    of -1: 0
+                    else: a[1]
             )
         )
         , (0,1)
