@@ -31,17 +31,13 @@ echo(
     )
     .foldl( a.concat(b) )
     .foldl( 
-        case b[1]:
-            of 1:
-                (a[0], 1)
-            of -1:
-                (a[0], 0)
-            else:
-                case a[1]:
-                    of 0:
-                        a
-                    else:
-                        (a[0] + b[0], 1)
+        (
+            a[0] + b[0],
+            case b[1]:
+                of 1: 1
+                of -1: 0
+                else: a[1]
+        )
         , (0,1)
     )[0]
 )

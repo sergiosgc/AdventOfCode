@@ -21,7 +21,7 @@ echo(
             .map(parseInt)
         ))
         .map( val => val[0] * val[1])
-        .foldl( a + b )
     )
+    .foldl( a.concat(b) )
     .foldl( a + b )
 )
