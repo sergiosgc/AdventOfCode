@@ -6,7 +6,7 @@ import vec2d
 import rectangle2d
 import std/tables
 
-proc contains_word(board: Table[Coord2D, char], word: string, pos: Coord2D, dir: Vec2D): bool = 
+proc contains_word(board: var Table[Coord2D, char], word: string, pos: Coord2D, dir: Vec2D): bool = 
     if word.len == 0: return true
     if not board.hasKey(pos) or board[pos] != word[0]: return false
     return board.contains_word(word[1..word.len-1], pos+dir, dir)
@@ -35,12 +35,12 @@ echo(
     .map( pair => 
         directions
         .toSeq
+        .filter( direction => direction.x != 0 and direction.y != 0 )
         .map( direction => (pair[0], direction, input.contains_word("MAS", pair[0], direction )) )
         .filter( r => r[2])
         .map( r => bounding_box(r[0], r[0] + ("MAS".len()-1) * r[1]))
     )
     .foldl( a.concat(b) )
-    .toSeq
     .foldl( (
         var result = a
         if a.hasKey(b):
