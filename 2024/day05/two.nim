@@ -4,6 +4,7 @@ import strutils
 import std/syncio
 import sequtils
 import tables
+import algorithm
 
 proc splitOn[T](s: openArray[T], op: proc (x: T): bool {.closure.}): (seq[T], seq[T]) =
     var split_index = 0
@@ -61,8 +62,19 @@ echo(
                 .toSeq
                 .map( pagePair => lessThanTable.compare(pagePair[1], pagePair[0]) )
                 .filter( comp => comp == compareResult.lessThan )
-                .len() == 0
+                .len() != 0
     )
+    .map( line => (
+        var sorted = line
+        sorted.sort( (a,b) => (
+            if a == b: return 0
+            if lessThanTable.compare(a,b) == compareResult.lessThan: return -1
+            if lessThanTable.compare(b,a) == compareResult.lessThan: return 1
+            return 0
+        ));
+        sorted
+    ))
     .map( line => line[((line.len()-1) / 2).int] )
     .foldl( a + b )
 )
+
