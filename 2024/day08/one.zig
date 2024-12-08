@@ -30,7 +30,6 @@ pub const AntennaPairIterator = struct {
             self.i = 0;
             self.j = 1;
             if (self.currentFrequency == null) return null;
-            if (self.currentFrequency) |antennae| if (antennae.items.len < 2) return self.next();
         }
 
         if (self.currentFrequency) |antennae| {
