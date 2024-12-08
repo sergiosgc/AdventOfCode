@@ -83,7 +83,7 @@ pub fn main() !void {
     defer _ = antinodes.deinit();
     while (pairs.next()) |pair| {
         const v = pair[0].subtract(pair[1]);
-        for (0..200) |delta_usize| {
+        for (0..100) |delta_usize| {
             const delta = @as(i64, @intCast(delta_usize)) - 50;
             const antinode = pair[0].add(v.multiply(delta));
             if (antinode.x >= 0 and antinode.x <= input.max.x and antinode.y >= 0 and antinode.y <= input.max.y) try antinodes.put(antinode, {});
