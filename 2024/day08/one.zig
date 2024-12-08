@@ -25,13 +25,6 @@ pub const AntennaPairIterator = struct {
         return AntennaPairIterator{ .input = input, .antennaeIterator = input.antennae.valueIterator(), .currentFrequency = null, .i = 0, .j = 1 };
     }
     fn next(self: *AntennaPairIterator) ?struct { Coord2D, Coord2D } {
-        if (self.currentFrequency == null) {
-            self.currentFrequency = self.antennaeIterator.next();
-            self.i = 0;
-            self.j = 1;
-            if (self.currentFrequency == null) return null;
-        }
-
         if (self.currentFrequency) |antennae| {
             if (self.j >= antennae.items.len) {
                 self.i += 1;
@@ -42,7 +35,14 @@ pub const AntennaPairIterator = struct {
             const result = .{ antennae.items[self.i], antennae.items[self.j] };
             self.j += 1;
             return result;
+        } else {
+            self.currentFrequency = self.antennaeIterator.next();
+            self.i = 0;
+            self.j = 1;
+            if (self.currentFrequency == null) return null;
+            return self.next();
         }
+
         unreachable;
     }
 };
