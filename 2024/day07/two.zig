@@ -69,7 +69,4 @@ pub fn main() !void {
         if (try equation.is_ok()) result += equation.result;
     }
     std.debug.print("{any}\n", .{result});
-    // for (input.items) |*equation| {
-    //     if (try equation.is_ok()) std.debug.print("{}\n", .{equation.result});
-    // }
 }
