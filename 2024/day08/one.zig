@@ -32,9 +32,8 @@ pub const AntennaPairIterator = struct {
                 if (self.i >= antennae.items.len) self.currentFrequency = null;
                 return self.next();
             }
-            const result = .{ antennae.items[self.i], antennae.items[self.j] };
             self.j += 1;
-            return result;
+            return .{ antennae.items[self.i], antennae.items[self.j - 1] };
         } else {
             self.currentFrequency = self.antennaeIterator.next();
             self.i = 0;
@@ -42,7 +41,6 @@ pub const AntennaPairIterator = struct {
             if (self.currentFrequency == null) return null;
             return self.next();
         }
-
         unreachable;
     }
 };
