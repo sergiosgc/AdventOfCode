@@ -1,14 +1,14 @@
-one.sample: input.txt one.nim
-	nim compile --run one.nim < sample.txt
+one.sample: input.txt one.zig
+	zig run one.zig < sample.txt
 
-one: input.txt one.nim
-	nim compile --run one.nim < input.txt
+one: input.txt one.zig
+	zig run one.zig < input.txt
 
-two.sample: input.txt two.nim
-	nim compile --run two.nim < sample.txt
+two.sample: input.txt two.zig
+	zig run two.zig < sample.txt
 
-two: input.txt two.nim
-	nim compile --run two.nim < input.txt
+two: input.txt two.zig
+	zig run two.zig < input.txt
 
 input.txt: input.gpg
 	gpg --decrypt --output=input.txt input.gpg
